@@ -1,0 +1,48 @@
+{% extends "perfumes/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+    {% else %}
+        <div class="alert alert-success" role="alert" style="width: 40%">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+<form class="mx-auto form-rg" action="{% url 'register' %}" method="post">
+    <h2>Register</h2>
+  {% csrf_token %}
+  
+  <div class="input-group form-group mx-auto">
+    <input class="form-control" required autofocus type="text" name="username" placeholder="Username">
+  </div>
+  <div class="input-group form-group mx-auto">
+    <input class="form-control" required type="email" name="email" placeholder="Email Address">
+  </div>
+  <div class="input-group form-group mx-auto ">
+    <input class="form-control" type="number" name="phone" placeholder="phone number">
+  </div>
+  <div class="input-group form-group mx-auto" id="show_hide_password">
+    <input class="form-control" required type="password" name="password" id="paword" placeholder="Password">
+    <span  class="input-group-text" onclick="show_password()" ><i class="fa fa-eye"></i></span>
+  </div>
+  <div class="input-group form-group mx-auto">
+    <input class="form-control" required type="password" name="confirmation" id="paword1" placeholder="Confirm Password">
+  </div>
+  
+  <input class="btn btn-success" type="submit" value="Register" id="sum">
+  <br>
+  Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+</form>
+
+<script src="{% static 'perfumes/register.js' %}"></script>
+
+
+{% endblock %}

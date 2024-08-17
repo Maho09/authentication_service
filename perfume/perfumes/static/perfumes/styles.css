@@ -1,0 +1,61 @@
+.navi{
+    background-color: rgba(30, 158, 25, 0.897);
+}
+
+.navi a {
+    color: rgb(255, 255, 255);
+    align-self: center;
+}
+
+
+
+.nav-link {
+  color: aliceblue;
+}
+
+.intro{
+    text-align: center;
+    margin: 5em;
+    
+}
+
+.vl {
+  border-left: 6px transparent black;
+  height: 20px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+.d-flex{
+  margin: 60px;
+  height:300px;
+}
+
+
+.verticalLine {
+  border-left: thin solid  rgba(0, 0, 0, 0.959);
+}
+
+.linko{
+  text-decoration: none ;
+  color: black;
+}
+.margin-0{
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.form-rg{
+  margin: 3em;
+  text-align: center;
+  width: 30%;
+}
+
+.form-group{
+  margin: 1em;
+}
+
+.input-group{
+  max-width: 300px;
+}

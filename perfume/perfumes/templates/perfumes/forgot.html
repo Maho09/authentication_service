@@ -1,0 +1,28 @@
+{% extends "perfumes/layout.html" %}
+{% block body %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+    {% else %}
+        <div class="alert alert-success" role="alert" style="width: 40%">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!-- {% if message %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endif %} -->
+
+<form class="mx-auto form-rg" action="{% url 'forgot-pass' %}" method="post">
+    <h2>enter your email</h2>
+  {% csrf_token %}
+  <div class="form-group">
+    <input class="form-control" required type="email" name="email" placeholder="Email Address">
+  </div>
+  <input class="btn btn-success" type="submit" value="Submit">
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "perfumes/layout.html" %}
+
+{% block body %}
+{% if messages %}
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+    {% else %}
+        <div class="alert alert-success" role="alert" style="width: 40%">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!-- {% if success %}
+<div class="alert alert-success" role="alert" style="width: 40%">{{ success }}</div>
+{% endif %} -->
+
+{% if message %}
+<div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+{% endif %}
+
+<form class="mx-auto form-rg" action="{% url 'login' %}" method="post">
+  <h2>Login</h2>
+  {% csrf_token %}
+  <div class="form-group">
+    <input autofocus class="form-control" type="text" name="username" placeholder="Username" required>
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="password" name="password" placeholder="Password" required>
+  </div>
+  <input class="btn btn-primary" type="submit" value="Login" id="submit">
+  <br><br>
+  <a href="{% url 'forgot-pass' %}">Forgot password?</a> <br>
+  Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+</form>
+
+
+
+
+
+{% endblock %}

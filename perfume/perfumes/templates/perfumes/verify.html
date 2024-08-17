@@ -1,0 +1,34 @@
+{% extends "perfumes/layout.html" %}
+
+{% block body %}
+
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+    {% else %}
+        <div class="alert alert-success" role="alert" style="width: 40%">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if message %}
+<div class="alert alert-danger" role="alert" style="width: 40%">{{ message }}</div>
+{% endif %}
+
+<form class="mx-auto form-rg" action="{% url 'verify-otp' user.id 0 device %}" method="post">
+  <h2>OTP Verification</h2>
+  {% csrf_token %}
+  <div class="form-group">
+    <input autofocus class="form-control" type="text" name="otp" placeholder="enter your otp">
+  </div>
+  
+  <input class="btn btn-success" type="submit" value="Verify">
+  <br><br>
+  Need another OTP? <a href="{% url 're-otp' user.id 0 device %}">Click here.</a>
+</form>
+
+
+
+{% endblock %}
