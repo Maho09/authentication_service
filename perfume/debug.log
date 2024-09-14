@@ -1,3 +1,5 @@
+//This is a dummy logging file
+
 INFO 2024-08-03 20:38:43,101 signals: OTP was sent to verify sds@fdfd.fdfd
 INFO 2024-08-04 20:37:42,034 views:  logged out!
 INFO 2024-08-04 20:38:27,093 signals: OTP was sent to verify sss@ddd.com
